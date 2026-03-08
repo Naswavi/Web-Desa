@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Pencatat Keuangan</title>
+</head>
+
+<body>
+
+<h2>Pencatat Keuangan Sederhana</h2>
+
+<input type="text" id="keterangan" placeholder="Keterangan">
+<input type="number" id="jumlah" placeholder="Jumlah">
+
+<button onclick="tambahPemasukan()">Pemasukan</button>
+<button onclick="tambahPengeluaran()">Pengeluaran</button>
+
+<h3>Saldo: <span id="saldo">0</span></h3>
+
+<ul id="riwayat"></ul>
+
+<script>
+let saldo = 0;
+
+function tambahPemasukan(){
+let ket = document.getElementById("keterangan").value;
+let jumlah = parseInt(document.getElementById("jumlah").value);
+
+saldo += jumlah;
+document.getElementById("saldo").innerText = saldo;
+
+let li = document.createElement("li");
+li.innerText = ket + " + " + jumlah;
+document.getElementById("riwayat").appendChild(li);
+}
+
+function tambahPengeluaran(){
+let ket = document.getElementById("keterangan").value;
+let jumlah = parseInt(document.getElementById("jumlah").value);
+
+saldo -= jumlah;
+document.getElementById("saldo").innerText = saldo;
+
+let li = document.createElement("li");
+li.innerText = ket + " - " + jumlah;
+document.getElementById("riwayat").appendChild(li);
+}
+</script>
+
+</body>
+</html>
